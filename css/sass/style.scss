@@ -1,0 +1,428 @@
+@import "variables", "dir-mixins", "settings", "classes";
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 99;
+  background: transparent linear-gradient(270deg, #199EBD 0%, #423D43 100%) 0% 0% no-repeat padding-box;
+  .load {
+      width: 250px;
+      height: 10px;
+      border-radius: 6px;
+      background-color: rgba(255, 255, 255, 0.2);
+      margin-top: 20px;
+      overflow: hidden;
+      position: relative;
+      &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #199ebd;
+          animation: loader 1.2s infinite linear forwards;
+      }
+  }
+  img {
+      height: 90px;
+      width: 220px;
+  }
+}
+
+.banner-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    object-fit: cover;
+    min-height: 700px;
+    position: relative;
+    @media (max-width: $screen-xs) {
+      min-height: 450px;
+    }
+
+    .inner-home {
+        display: inline-flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding-top: 50px;
+        gap: 100px;
+        @media (max-width: $screen-md) {
+          gap: 50px;
+        }
+        @media (max-width: $screen-xs) {
+          gap: 20px;
+        }
+    }
+  }
+
+  .title {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #000;
+    @media (max-width: $screen-xs) {
+      font-size: 16px;
+    }
+    &.md {
+        font-size: 17px;
+    }
+    &.lg {
+        font-size: 22px;
+    }
+    &.bold {
+        font-weight: bold;
+    }
+  }
+
+  .disc {
+    font-size: 15px;
+    color: #000;
+    margin-bottom: 15px;
+  }
+
+  .white-title {
+    color: #fff;
+  }
+
+  .main-cl {
+    color: #E3A923;
+  }
+
+  .trans-bg {
+    background-color: rgb(0 0 0 / 59%);
+    padding: 10px;
+    border-radius: 2px;
+  }
+
+  .section-users {
+    position: absolute;
+    bottom: 0;
+
+    .users {
+        @include dir-right(10px);
+        position: absolute;
+        min-width: 160px;
+        min-height: 160px;
+        background: #E3A923;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transform: translatey(-50%);
+        padding: 10px;
+        flex-direction: column;
+        gap: 10px;
+        @media (max-width: $screen-xs) {
+          min-width: 100px;
+          min-height: 100px;
+          gap: 5px;
+        }
+        p {
+            color: #fff;
+        }
+        img {
+            max-width: 60px;
+            @media (max-width: $screen-xs) {
+              max-width: 35px;
+            }
+        }
+        .lg {
+            font-size: 19px;
+            @media (max-width: $screen-xs) {
+              font-size: 15px;
+            }
+        }
+        .sm {
+            font-size: 13px;
+        }
+    }
+  }
+
+  .section-info {
+    position: relative;
+    padding: 130px 0 60px;
+    overflow: hidden;
+    @media (max-width: $screen-xs) {
+        padding: 50px 0 50px;
+    }
+  }
+
+  .about-bg {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    @include dir-right(0);
+  }
+
+  .box-img {
+    .img-info {
+        height: 450px;
+        object-fit: cover;
+        border-radius: 12px;
+        width: 100%;
+        @media (max-width: $screen-md) {
+          height: 415px;
+        }
+        @media (max-width: $screen-xs) {
+          height: 250px;
+        }
+    }
+  }
+
+  .filter-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+    button {
+        padding: 10px 20px;
+        border-radius: 9px;
+        background: transparent;
+        box-shadow: 0 0 6px rgb(0, 0, 0, 16%);
+        transition: all .4s;
+        &.active, &:hover {
+            background-color: #E3A923;
+            color: #fff;
+            img {
+                filter: brightness(0) invert(1);
+            }
+        }
+        img {
+            margin-inline-start: 10px;
+            max-width: 25px;
+            transition: all .4s;
+        }
+    }
+  }
+  
+  .car-item {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 18%);
+    .rate-sec {
+        border-bottom: 1px solid rgba(112, 112, 112, 16%);
+    }
+    .img-car {
+        height: 220px;
+        object-fit: cover;
+        margin-bottom: 12px;
+        border-radius: 10px;
+        width: 100%;
+    }
+    .sing-part {
+        display: flex;
+        align-items: center;
+        margin-left: 15px;
+        gap: 10px;
+        margin-bottom: 10px;
+        flex-grow: 1;
+    }
+    .price {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        padding: 10px;
+        background: rgb(255 247 228 / 30%);
+        color: #828282;
+        .hint {
+            color: #B70E08;
+            font-weight: bold;
+        }
+    }
+    .title {
+        margin-bottom: 12px;
+    }
+
+    .hint-car {
+        position: absolute;
+        @include dir-left(0);
+        border-radius: 0 10px 0 10px;
+        min-width: 70px;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 7px;
+        color: #fff;
+        &.blue {
+            background-color: #272E98;
+        }
+        &.green {
+            background-color: #0A8B0A;
+        }
+        &.yellow {
+            background-color: #E3A923;
+        }
+    }
+
+    .custom-btn {
+        background-color: #242424;
+        border-color: #242424;
+        color: #fff;
+    }
+    .frame-img {
+        position: relative;
+    }
+  }
+
+  .rate-sec {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    i {
+        font-size: 14px;
+        color: gray;
+        &.active {
+            color: #FFB300;
+        }
+    }
+}
+
+  .sells {
+    .item {
+        position: relative;
+        width: 100%;
+        height: 250px;
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+        .info {
+          padding: 20px;
+          z-index: 1;
+            .title, .disc {
+                color: #fff;
+            }
+        }
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+  }
+
+
+.main-info {
+    padding-top: 60px;
+    background: #0A1028;
+    @media (max-width: $screen-xs) {
+      padding: 35px 0;
+    }
+    .disc {
+        color: #fff;
+    }
+}
+
+.hint-profile {
+    display: flex;
+    margin-top: 20px;
+    .img {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        margin-inline-end: 12px;
+    }
+    .title {
+        margin-bottom: 0;
+        color: #fff;
+        &:not(:last-child) {
+            margin-bottom: 7px;
+        }
+    }
+}
+
+.custom-pd {
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+
+.subscription-section {
+    width: 100%;
+    .subscription-info {
+        transition: .4s;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 15%);
+        overflow: hidden;
+        border-radius: 12px;
+        padding: 20px 15px;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 15px;
+        .disc {
+            margin-bottom: 0;
+            &.cancel {
+                text-decoration: line-through;
+            }
+        }
+    }
+
+    input:checked {
+        + .subscription-info {
+            transform: scale(1.05);
+
+            background-color: #E3A923;
+            box-shadow: 1px 1px 4px 0px #ffffff;
+            transform: scale(1.05);
+            p {
+                color: #fff !important;
+            }
+            .img {
+                background-color: rgba(241, 163, 29, 0.1);
+            }
+            .title {
+                .f-hint,
+                .s-hint,
+                .th-hint {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes loader {
+  from {
+      left: -250px;
+  }
+  to {
+      left: 250px;
+  }
+}
