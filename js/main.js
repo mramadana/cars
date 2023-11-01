@@ -33,6 +33,10 @@ $(document).ready(function () {
       dir: isRtl ? "rtl" : "ltr"
   });
 
+  $(".without-search").select2({
+    minimumResultsForSearch: Infinity,
+  });
+
   $(':input[type="number"]').on("input", function() {
     var nonNumReg = /[^0-9]/g
     $(this).val($(this).val().replace(nonNumReg, ''));
@@ -64,6 +68,37 @@ $(document).ready(function () {
       isFixed();
     });
 
+    $(".brand-slider").owlCarousel({
+      items: 5,
+      loop: true,
+      rtl: isRtl,
+      margin: 10,
+      nav: false,
+      stagePadding: 0,
+      autoplay: true,
+      slideTransition: "linear",
+      autoplayTimeout: 3000,
+      autoplaySpeed: 3000,
+      autoplayHoverPause: true,
+      dots: false,
+      nav: false,
+      responsive: {
+        320: {
+          items: 2,
+        },
   
+        768: {
+          items: 3,
+        },
+  
+        1024: {
+          items: 4,
+        },
+  
+        1440: {
+          items: 5,
+        },
+      },
+    });
     
 });
